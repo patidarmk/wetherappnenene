@@ -3,8 +3,7 @@ import {
   createRouter, 
   RouterProvider, 
   createRootRoute, 
-  createRoute as createTanStackRoute, 
-  Outlet 
+  createRoute as createTanStackRoute
 } from '@tanstack/react-router'
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -12,6 +11,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Index from "./pages/Index";
 import { Layout } from '@/components/Layout';
+import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
 
@@ -22,12 +22,11 @@ const rootRoute = createRootRoute({
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Layout>
-          <Outlet />
-        </Layout>
+        <Layout />
       </TooltipProvider>
     </QueryClientProvider>
   ),
+  notFoundComponent: NotFound,
 })
 
 // Create index route
